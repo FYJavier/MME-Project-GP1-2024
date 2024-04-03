@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/pixi.js@7.x/dist/pixi.min.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+        <h1 id="main-heading" style="color: red;">
+            Favorite Movie Franchise
+        </h1>
+        <ul>
+            <li class="list-items">The Matrix</li>
+            <li class="list-items">Star Wars</li>
+            <li class="list-items">Harry Potter</li>
+            <li class="list-items">Lord of the Rings</li>
+            <li class="list-items">Marvel</li>
+        </ul>
+    </div>
+    <script>
+      window.onload = function () {
+        let app;
+        app = new PIXI.Application({
+        });
+
+        document.body.appendChild(app.view);
+      };
+      // Accessing elements:
+
+    //   const title = document.getElementById('main-heading');
+    //   console.log(title);
+
+    //   const listItem = document.getElementsByClassName('list-items');
+    //   console.log(listItem);
+
+    //   const heading = document.getElementsByTagName('h1');
+    //   console.log(heading)
+
+    //   const firstListItem = document.querySelector('li');
+    //   console.log(firstListItem);
+
+    //   const allListItems = document.querySelectorAll('li');
+    //   console.log(allListItems);
+
+
+    // Manipulating elements:
+    
+    // const title = document.querySelector('#main-heading')
+    // title.style.color = 'red';
+
+    const allListItems = document.querySelectorAll('.list-items')
+    console.log(allListItems);
+    for(i = 0; i < allListItems.length; i++) {
+        allListItems[i].style.color = 'red';
+    }
+
+    // Creating elements:
+
+    const ul = document.querySelector('ul');
+    const li = document.createElement('li');
+
+    // Adding elements:
+
+    ul.append(li);
+
+    // Modifying the text: 
+
+    li.innerText = 'XMen';
+    
+    // Modifying the attributes & classes of an element:
+
+    li.setAttribute('id', 'main-heading');
+    console.log(li.getAttribute('id'));
+
+
+    </script>
+
+  </body>
+</html>
