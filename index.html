@@ -9,11 +9,11 @@
   <body>
 
     <div class="container">
-        <h1 id="main-heading" style="color: red;">
+        <h1 id="main-heading" style="color: red;" onclick="alert('I love Javascript')">
             Favorite Movie Franchise
         </h1>
         <ul>
-            <li class="list-items">The Matrix</li>
+            <li id="button-2" class="list-items">The Matrix</li>
             <li class="list-items">Star Wars</li>
             <li class="list-items">Harry Potter</li>
             <li class="list-items">Lord of the Rings</li>
@@ -84,6 +84,19 @@
 
     console.log("Test #4")
 
+    // Traversing the DOM
+
+    console.log(ul.children)
+
+    // Event Listeners 
+    
+    const button = document.getElementById("button-2");
+
+    function alertBtn() {
+      alert("I also love Javascript");
+    }
+
+    button.addEventListener("click", alertBtn)
 
     </script>
 
