@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/pixi.js@7.x/dist/pixi.min.js"></script>
+    <style>
+      .hidden-content {
+        display: none;
+      }
+
+      .hidden-content.reveal-btn {
+        display: block;
+      }
+    </style>
   </head>
   <body>
 
     <div class="container">
-        <h1 id="main-heading" style="color: red;" onclick="alert('I love Javascript')">
+        <h1 id="main-heading" onclick="alert('I love Javascript')">
             Favorite Movie Franchise
         </h1>
         <ul>
@@ -19,6 +28,13 @@
             <li class="list-items">Lord of the Rings</li>
             <li class="list-items">Marvel</li>
         </ul>
+
+        <button class="reveal-btn boxes">Reveal More</button>
+        <div class="hidden-content boxes">
+          Hello World! Hello World! Hello World! Hello World! Hello World! 
+          Hello World! Hello World! Hello World! Hello World! Hello World! 
+          Hello World! Hello World! Hello World! Hello World! Hello World! 
+        </div>
     </div>
     <script>
       window.onload = function () {
@@ -51,42 +67,42 @@
     // const title = document.querySelector('#main-heading')
     // title.style.color = 'red';
 
-    const allListItems = document.querySelectorAll('.list-items')
-    console.log(allListItems);
-    for(i = 0; i < allListItems.length; i++) {
-        allListItems[i].style.color = 'red';
-    }
+    // const allListItems = document.querySelectorAll('.list-items')
+    // console.log(allListItems);
+    // for(i = 0; i < allListItems.length; i++) {
+    //     allListItems[i].style.color = 'red';
+    // }
 
-    // Creating elements:
+    // // Creating elements:
 
-    const ul = document.querySelector('ul');
-    const li = document.createElement('li');
+    // const ul = document.querySelector('ul');
+    // const li = document.createElement('li');
 
-    // Adding elements:
+    // // Adding elements:
 
-    ul.append(li);
+    // ul.append(li);
 
-    // Modifying the text: 
+    // // Modifying the text: 
 
-    li.innerText = 'XMen';
+    // li.innerText = 'XMen';
     
-    // Modifying the attributes & classes of an element:
+    // // Modifying the attributes & classes of an element:
 
-    li.setAttribute('id', 'main-heading');
-    console.log(li.getAttribute('id'));
+    // li.setAttribute('id', 'main-heading');
+    // console.log(li.getAttribute('id'));
 
-    const li2 = document.createElement('li');
-    ul.append(li2);
+    // const li2 = document.createElement('li');
+    // ul.append(li2);
 
-    console.log("Test #2")
+    // console.log("Test #2")
 
-    console.log("Test #3")
+    // console.log("Test #3")
 
-    console.log("Test #4")
+    // console.log("Test #4")
 
-    // Traversing the DOM
+    // // Traversing the DOM
 
-    console.log(ul.children)
+    // console.log(ul.children)
 
     // Event Listeners 
     
@@ -99,6 +115,33 @@
     button.addEventListener("click", alertBtn)
 
     console.log("Test #5")
+
+    // Mouseover
+
+    const headingColor = document.querySelector('#main-heading')
+
+    function changeHeadingColor() {
+      headingColor.style.color = "blue"
+    }
+
+    headingColor.addEventListener("mouseover", changeHeadingColor);
+
+    const revealBtn = document.querySelector('.reveal-btn');
+
+    const hiddenContent = document.querySelector('.hidden-content');
+
+    function revealContent() {
+      
+      if(hiddenContent.classList.contains('reveal-btn')) {
+        hiddenContent.classList.remove('reveal-btn')
+      } else {
+        hiddenContent.classList.add('reveal-btn')
+      }
+    }
+
+    revealBtn.addEventListener("click", revealContent);
+
+    
 
     </script>
 
