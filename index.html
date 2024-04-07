@@ -29,8 +29,8 @@
             <li class="list-items">Marvel</li>
         </ul>
 
-        <button class="reveal-btn boxes">Reveal More</button>
-        <div class="hidden-content boxes">
+        <button class="reveal-btn">Reveal More</button>
+        <div class="hidden-content">
           Hello World! Hello World! Hello World! Hello World! Hello World! 
           Hello World! Hello World! Hello World! Hello World! Hello World! 
           Hello World! Hello World! Hello World! Hello World! Hello World! 
@@ -94,12 +94,6 @@
     // const li2 = document.createElement('li');
     // ul.append(li2);
 
-    // console.log("Test #2")
-
-    // console.log("Test #3")
-
-    // console.log("Test #4")
-
     // // Traversing the DOM
 
     // console.log(ul.children)
@@ -114,8 +108,6 @@
 
     button.addEventListener("click", alertBtn)
 
-    console.log("Test #5")
-
     // Mouseover
 
     const headingColor = document.querySelector('#main-heading')
@@ -126,6 +118,8 @@
 
     headingColor.addEventListener("mouseover", changeHeadingColor);
 
+    // Revealing Element
+    
     const revealBtn = document.querySelector('.reveal-btn');
 
     const hiddenContent = document.querySelector('.hidden-content');
@@ -140,6 +134,25 @@
     }
 
     revealBtn.addEventListener("click", revealContent);
+
+    // Event Propagation: How an event travels through the DOM
+    // Has 3 phases: event capturing, target, event bubbling
+
+    window.addEventListener("click", () => {
+      console.log("Window");
+    }, false);
+
+    document.addEventListener("click", () => {
+      console.log("Document");
+    }, false);
+
+    document.querySelector("div").addEventListener("click", () => {
+      console.log('DIV');
+    }, false);
+
+    document.querySelector("button").addEventListener("click", e => {
+      console.log(e)
+    }, false);
 
     
 
